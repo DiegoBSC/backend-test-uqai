@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: uqai-demo
+  profiles:
+    include:
+      - dev
+  #  #Bdd develop
+  datasource:
+    url: jdbc:postgresql://localhost:5432/uqai-demo
+    username: postgres
+    password: system
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jpa:
+    properties:
+      hibernate:
+        format_sql: false
+        default_schema: public
+        order_by:
+          default_null_ordering: last
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: validate
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+  flyway:
+    enabled: true
+    locations: classpath:/db/migration
+    validate-on-migrate: true
+path:
+  image: 'cloudinary://822398567185586:lMShQCeZVJIr6rMro3dvQ61-VuQ@app-repository-complex'
+server:
+  port: ${PORT:8080}
+  servlet:
+    contextPath: /api
+
