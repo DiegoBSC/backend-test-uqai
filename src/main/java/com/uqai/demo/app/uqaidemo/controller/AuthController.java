@@ -22,7 +22,6 @@ public class AuthController {
     public ResponseEntity login(@RequestBody AuthCredential authCredential) throws ResponseError {
         return userService.login(authCredential);
     }
-
     @PostMapping("/register")
     UserDto createUser(@RequestBody UserDto userDto) throws ResponseError {
         return userService.createUser(userDto);
